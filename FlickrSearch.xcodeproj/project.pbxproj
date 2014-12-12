@@ -37,6 +37,9 @@
 		B21848C01A38947B00ED832E /* Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = B21848BD1A38947B00ED832E /* Flickr.m */; };
 		B21848C11A38947B00ED832E /* FlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B21848BF1A38947B00ED832E /* FlickrPhoto.m */; };
 		B21848C41A38AE3B00ED832E /* FlickrPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B21848C31A38AE3B00ED832E /* FlickrPhotoCell.m */; };
+		B21848C71A3B387500ED832E /* FlickrPhotoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B21848C61A3B387500ED832E /* FlickrPhotoHeaderView.m */; };
+		B21848CB1A3B45E400ED832E /* FlickrPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21848C91A3B45E400ED832E /* FlickrPhotoViewController.m */; };
+		B21848CC1A3B45E400ED832E /* FlickrPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21848CA1A3B45E400ED832E /* FlickrPhotoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,11 @@
 		B21848BF1A38947B00ED832E /* FlickrPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhoto.m; sourceTree = "<group>"; };
 		B21848C21A38AE3B00ED832E /* FlickrPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoCell.h; sourceTree = "<group>"; };
 		B21848C31A38AE3B00ED832E /* FlickrPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoCell.m; sourceTree = "<group>"; };
+		B21848C51A3B387500ED832E /* FlickrPhotoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoHeaderView.h; sourceTree = "<group>"; };
+		B21848C61A3B387500ED832E /* FlickrPhotoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoHeaderView.m; sourceTree = "<group>"; };
+		B21848C81A3B45E400ED832E /* FlickrPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoViewController.h; sourceTree = "<group>"; };
+		B21848C91A3B45E400ED832E /* FlickrPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoViewController.m; sourceTree = "<group>"; };
+		B21848CA1A3B45E400ED832E /* FlickrPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickrPhotoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,11 @@
 				B21848731A38831E00ED832E /* AppDelegate.m */,
 				B21848751A38831E00ED832E /* ViewController.h */,
 				B21848761A38831E00ED832E /* ViewController.m */,
+				B21848C51A3B387500ED832E /* FlickrPhotoHeaderView.h */,
+				B21848C61A3B387500ED832E /* FlickrPhotoHeaderView.m */,
+				B21848C81A3B45E400ED832E /* FlickrPhotoViewController.h */,
+				B21848C91A3B45E400ED832E /* FlickrPhotoViewController.m */,
+				B21848CA1A3B45E400ED832E /* FlickrPhotoViewController.xib */,
 				B21848C21A38AE3B00ED832E /* FlickrPhotoCell.h */,
 				B21848C31A38AE3B00ED832E /* FlickrPhotoCell.m */,
 				B21848BC1A38947B00ED832E /* Flickr.h */,
@@ -276,6 +289,7 @@
 			files = (
 				B218487A1A38831E00ED832E /* Main.storyboard in Resources */,
 				B21848AA1A388C3A00ED832E /* button.png in Resources */,
+				B21848CC1A3B45E400ED832E /* FlickrPhotoViewController.xib in Resources */,
 				B21848AD1A388C3A00ED832E /* decoration_snail@2x.png in Resources */,
 				B21848A81A388C3A00ED832E /* bg_cork.png in Resources */,
 				B21848A91A388C3A00ED832E /* bg_cork@2x.png in Resources */,
@@ -314,7 +328,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B21848C71A3B387500ED832E /* FlickrPhotoHeaderView.m in Sources */,
 				B21848771A38831E00ED832E /* ViewController.m in Sources */,
+				B21848CB1A3B45E400ED832E /* FlickrPhotoViewController.m in Sources */,
 				B21848C41A38AE3B00ED832E /* FlickrPhotoCell.m in Sources */,
 				B21848741A38831E00ED832E /* AppDelegate.m in Sources */,
 				B21848C01A38947B00ED832E /* Flickr.m in Sources */,

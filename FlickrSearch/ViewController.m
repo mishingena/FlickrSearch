@@ -10,6 +10,8 @@
 #import "Flickr.h"
 #import "FlickrPhoto.h"
 #import "FlickrPhotoCell.h"
+#import "FlickrPhotoHeaderView.h"
+#import "FlickrPhotoViewController.h"
 
 @interface ViewController () <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -21,6 +23,7 @@
 @property (nonatomic, strong) NSMutableDictionary *searchResults;
 @property (nonatomic, strong) NSMutableArray *searches;
 @property (nonatomic, strong) Flickr *flickr;
+@property (nonatomic) BOOL sharing;
 
 
 - (IBAction)shareButtonTapped:(id)sender;
@@ -44,6 +47,10 @@
     self.searches = [@[] mutableCopy];
     self.searchResults = [@{} mutableCopy];
     self.flickr = [[Flickr  alloc] init];
+    UIView *topView =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 27)];
+    topView.backgroundColor = [UIColor whiteColor];
+    topView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
+    [self.view addSubview:topView];
     
 //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"FlickrCell"];
 }
@@ -106,6 +113,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (!self.sharing) {
+        NSString *searchTerm = self.searches[indexPath.section];
+        FlickrPhoto *photo = self.searchResults[searchTerm][indexPath.row];
+        [self performSegueWithIdentifier:@"ShowFlickrPhoto" sender:photo];
+        [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    }
     
 }
 
@@ -124,14 +137,32 @@
     CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(50, 50);
     retval.height /= 3;
     retval.width /= 3;
-//    retval.height += 35;
-//    retval.width += 35;
+    retval.height += 35;
+    retval.width += 35;
     return retval;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(50, 20, 50, 20);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    FlickrPhotoHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"FlickrPhotoHeaderView" forIndexPath:indexPath];
+    NSString *searchTerm = self.searches[indexPath.section];
+    [headerView setSearchText:searchTerm];
+    return headerView;
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowFlickrPhoto"]) {
+        FlickrPhotoViewController *flickrPhotoViewController = segue.destinationViewController;
+        flickrPhotoViewController.flickrPhoto = sender;
+    }
 }
 
 @end
